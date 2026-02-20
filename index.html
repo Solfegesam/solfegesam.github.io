@@ -1,85 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Samuel Billy | Personal Site</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 0 20px;
-            line-height: 1.7;
-            background-color: #0d1117;
-            color: #c9d1d9;
-        }
-        h1 {
-            border-bottom: 2px solid #58a6ff;
-            padding-bottom: 10px;
-            color: #58a6ff;
-        }
-        h2 {
-            color: #58a6ff;
-        }
-        a {
-            color: #58a6ff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .section {
-            margin-bottom: 40px;
-        }
-        .card {
-            background: #161b22;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.3);
-        }
-    </style>
+<meta charset="UTF-8">
+<title>SAMUEL BILLY | Web Developer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --text: #c9d1d9;
+    --primary: #58a6ff;
+}
+
+.light-mode {
+    --bg: #f4f4f4;
+    --card: #ffffff;
+    --text: #111;
+    --primary: #0066ff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: 0.3s ease;
+}
+
+header {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    color: var(--primary);
+}
+
+.typing {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    opacity: 0.8;
+    min-height: 24px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+.card {
+    background: var(--card);
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+h2 {
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.project {
+    background: var(--card);
+    padding: 15px;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+.project img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.project:hover {
+    transform: scale(1.05);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+}
+
+button {
+    padding: 10px 18px;
+    background: var(--primary);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+}
+
+a.btn {
+    display: inline-block;
+    padding: 8px 14px;
+    margin-top: 10px;
+    background: var(--primary);
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+a.btn:hover {
+    opacity: 0.85;
+}
+</style>
 </head>
+
 <body>
 
-    <h1>Welcome! I'm Samuel Billy </h1>
-    <p><strong>Aspiring Web Developer & Software Engineer</strong></p>
+<button class="toggle-btn" onclick="toggleMode()">Toggle Mode</button>
 
-    <div class="section card">
-        <h2>About Me</h2>
-        <p>
-            I'm currently learning <strong>Computer Programming</strong>.
-            My goal is to become a professional <strong>Web Developer and Software Engineer</strong>.
-            I enjoy building websites and learning how software systems work.
-        </p>
-    </div>
+<header>
+    <h1>Hi, I'm SAMUEL BILLY 👋</h1>
+    <div class="typing" id="typing"></div>
+</header>
 
-    <div class="section card">
-        <h2>What I'm Learning</h2>
-        <ul>
-            <li>Git and GitHub</li>
-            <li>HTML & CSS</li>
-            <li>JavaScript</li>
-            <li>Python Programming</li>
-            <li>Software Development Fundamentals</li>
-        </ul>
-    </div>
+<div class="container">
 
-    <div class="section card">
-        <h2>Projects (Coming Soon 🚀)</h2>
-        <p>
-            I am currently working on practice projects to strengthen my skills.
-            More projects will be uploaded to my GitHub soon!
-        </p>
-    </div>
+<!-- About Me -->
+<div class="card reveal">
+    <h2>About Me</h2>
+    <p>
+        I'm building strong foundations in web development and software engineering.
+        I love creating modern, scalable, and impactful digital solutions.
+    </p>
+</div>
 
-    <div class="section card">
-        <h2>Links</h2>
-        <ul>
-            <li><a href="https://github.com/Solfegesam" target="_blank">My GitHub Profile</a></li>
-            <li>Email: samuelbarasa106@gmail.com</li>
-        </ul>
+<!-- Projects -->
+<div class="card reveal">
+    <h2>Projects</h2>
+    <div class="project-grid">
+        <div class="project">
+            <img src="https://via.placeholder.com/400x200" alt="Project">
+            <h3>Responsive Website</h3>
+            <p>Built using HTML & CSS with mobile-first design.</p>
+            <a class="btn" href="https://github.com/Solfegesam" target="_blank">View on GitHub</a>
+        </div>
+        <div class="project">
+            <img src="https://via.placeholder.com/400x200" alt="Project">
+            <h3>Python Mini App</h3>
+            <p>Command-line application solving real-world problems.</p>
+            <a class="btn" href="https://github.com/Solfegesam" target="_blank">View on GitHub</a>
+        </div>
+        <div class="project">
+            <img src="https://via.placeholder.com/400x200" alt="Project">
+            <h3>JavaScript To-Do</h3>
+            <p>Interactive web app demonstrating DOM manipulation.</p>
+            <a class="btn" href="https://github.com/Solfegesam" target="_blank">View on GitHub</a>
+        </div>
     </div>
+</div>
+
+<!-- Contact Me -->
+<div class="card reveal">
+    <h2>Contact Me</h2>
+    <form>
+        <input type="text" placeholder="Your Name" value="SAMUEL BILLY" required>
+        <input type="email" placeholder="Your Email" value="samuelbarasa106@gmail.com" required>
+        <textarea rows="5" placeholder="Your Message">Hi! I am very interested in collaborating on programming projects, learning together, and building web development solutions.</textarea>
+        <button type="submit">Send Message</button>
+    </form>
+    <p style="margin-top:10px;">Or check out my GitHub: <a href="https://github.com/Solfegesam" target="_blank">github.com/Solfegesam</a></p>
+</div>
+
+</div>
+
+<script>
+/* Dark / Light Mode */
+function toggleMode() {
+    document.body.classList.toggle("light-mode");
+}
+
+/* Typing Effect */
+const texts = [
+    "Aspiring Web Developer",
+    "Software Engineering Enthusiast",
+    "Building Modern Web Solutions"
+];
+
+let count = 0;
+let index = 0;
+let currentText = "";
+let letter = "";
+
+(function type() {
+    if (count === texts.length) {
+        count = 0;
+    }
+    currentText = texts[count];
+    letter = currentText.slice(0, ++index);
+
+    document.getElementById("typing").textContent = letter;
+    if (letter.length === currentText.length) {
+        count++;
+        index = 0;
+        setTimeout(type, 1500);
+    } else {
+        setTimeout(type, 80);
+    }
+})();
+
+/* Scroll Reveal */
+window.addEventListener("scroll", reveal);
+
+function reveal() {
+    const reveals = document.querySelectorAll(".reveal");
+    reveals.forEach(element => {
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+        const visible = 100;
+        if (elementTop < windowHeight - visible) {
+            element.classList.add("show");
+        }
+    });
+}
+</script>
 
 </body>
 </html>
