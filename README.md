@@ -2,7 +2,7 @@
 
 <img width="710" height="200" alt="image" src="https://github.com/user-attachments/assets/9e45ffe4-23e4-4806-be34-00025590ef95" />
 
-# 👋 Hi, I'm Samuel Billy
+# 👋 Hi, I'm Samuel Barasa
 
 <p align="center">
 <img src="https://readme-typing-svg.herokuapp.com/?lines=Aspiring+Web+Developer;Software+Engineering+Enthusiast;Building+Modern+Web+Applications;Always+Learning+New+Technologies&center=true&width=600&height=50">
