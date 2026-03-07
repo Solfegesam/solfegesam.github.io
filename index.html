@@ -2,268 +2,452 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>SAMUEL BILLY | Web Developer</title>
+<title>Samuel Billy | Web Developer</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root {
-    --bg: #0d1117;
-    --card: #161b22;
-    --text: #c9d1d9;
-    --primary: #58a6ff;
+
+:root{
+--bg:#0d1117;
+--card:#161b22;
+--text:#c9d1d9;
+--primary:#58a6ff;
 }
 
-.light-mode {
-    --bg: #f4f4f4;
-    --card: #ffffff;
-    --text: #111;
-    --primary: #0066ff;
+.light-mode{
+--bg:#f4f4f4;
+--card:#ffffff;
+--text:#111;
+--primary:#0066ff;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+html{
+scroll-behavior:smooth;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    transition: 0.3s ease;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-header {
-    text-align: center;
-    padding: 80px 20px;
+body{
+font-family:'Poppins',sans-serif;
+background:var(--bg);
+color:var(--text);
+transition:0.3s;
 }
 
-header h1 {
-    font-size: 2.8rem;
-    color: var(--primary);
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
 }
 
-.typing {
-    font-size: 1.2rem;
-    margin-top: 15px;
-    opacity: 0.8;
-    min-height: 24px;
+nav h3{
+margin-left:20px;
+color:var(--primary);
 }
 
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
+nav ul{
+display:flex;
+list-style:none;
+gap:30px;
+margin-right:20px;
 }
 
-.card {
-    background: var(--card);
-    padding: 25px;
-    margin-bottom: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    transition: 0.3s ease;
-    opacity: 0;
-    transform: translateY(20px);
+nav a{
+color:white;
+text-decoration:none;
+font-weight:600;
 }
 
-.card.show {
-    opacity: 1;
-    transform: translateY(0);
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
 }
 
-.card:hover {
-    transform: translateY(-6px);
+.hero h1{
+font-size:3rem;
+color:var(--primary);
 }
 
-h2 {
-    margin-bottom: 15px;
-    color: var(--primary);
+.hero p{
+margin-top:10px;
+opacity:0.8;
 }
 
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+.hero-buttons{
+margin-top:20px;
 }
 
-.project {
-    background: var(--card);
-    padding: 15px;
-    border-radius: 10px;
-    transition: 0.3s ease;
+.btn{
+display:inline-block;
+padding:10px 18px;
+background:var(--primary);
+color:white;
+border-radius:6px;
+text-decoration:none;
+margin:5px;
 }
 
-.project img {
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 10px;
+/* SECTIONS */
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:40px 20px;
 }
 
-.project:hover {
-    transform: scale(1.05);
+.card{
+background:var(--card);
+padding:25px;
+margin-bottom:30px;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
 
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 6px;
-    border: none;
-    outline: none;
+h2{
+color:var(--primary);
+margin-bottom:15px;
 }
 
-button {
-    padding: 10px 18px;
-    background: var(--primary);
-    border: none;
-    border-radius: 6px;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
+/* SKILLS */
+
+.skill{
+margin-bottom:15px;
 }
 
-.toggle-btn {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 8px 14px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    background: var(--primary);
-    color: white;
-    font-weight: 600;
+.skill-bar{
+background:#333;
+height:8px;
+border-radius:10px;
+overflow:hidden;
 }
 
-a.btn {
-    display: inline-block;
-    padding: 8px 14px;
-    margin-top: 10px;
-    background: var(--primary);
-    color: white;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s ease;
+.skill-fill{
+height:100%;
+background:var(--primary);
 }
 
-a.btn:hover {
-    opacity: 0.85;
+/* PROJECTS */
+
+.project-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
+
+.project{
+background:var(--card);
+padding:15px;
+border-radius:10px;
+transition:0.3s;
+}
+
+.project:hover{
+transform:translateY(-5px);
+}
+
+.project img{
+width:100%;
+border-radius:8px;
+margin-bottom:10px;
+}
+
+/* FORM */
+
+input,textarea{
+width:100%;
+padding:10px;
+margin-bottom:10px;
+border:none;
+border-radius:6px;
+}
+
+button{
+background:var(--primary);
+border:none;
+padding:10px 18px;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:30px;
+opacity:0.7;
+}
+
+/* PARTICLE BACKGROUND */
+
+#particles{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
+}
+
 </style>
 </head>
 
 <body>
 
-<button class="toggle-btn" onclick="toggleMode()">Toggle Mode</button>
+<canvas id="particles"></canvas>
 
-<header>
-    <h1>Hi, I'm SAMUEL BILLY 👋</h1>
-    <div class="typing" id="typing"></div>
-</header>
+<nav>
+
+<h3>Samuel Billy</h3>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<h1>Hi I'm Samuel Billy 👋</h1>
+
+<p id="typing"></p>
+
+<div class="hero-buttons">
+
+<a class="btn" href="#projects">View Projects</a>
+
+<a class="btn" href="#">Download CV</a>
+
+</div>
+
+</section>
 
 <div class="container">
 
-<!-- About Me -->
-<div class="card reveal">
-    <h2>About Me</h2>
-    <p>
-        I'm building strong foundations in web development and software engineering.
-        I love creating modern, scalable, and impactful digital solutions.
-    </p>
+<section id="about" class="card">
+
+<h2>About Me</h2>
+
+<p>
+Aspiring web developer passionate about creating modern web applications and learning software engineering. I enjoy building responsive websites and solving problems with code.
+</p>
+
+</section>
+
+<section id="skills" class="card">
+
+<h2>Skills</h2>
+
+<div class="skill">
+HTML
+<div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
 </div>
 
-<!-- Projects -->
-<div class="card reveal">
-    <h2>Projects</h2>
-    <div class="project-grid">
-        <div class="project">
-            <img src="https://via.placeholder.com/400x200" alt="Project">
-            <h3>Responsive Website</h3>
-            <p>Built using HTML & CSS with mobile-first design.</p>
-            <a class="btn" href="https://github.com/Solfegesam" target="_blank">View on GitHub</a>
-        </div>
-        <div class="project">
-            <img src="https://via.placeholder.com/400x200" alt="Project">
-            <h3>Python Mini App</h3>
-            <p>Command-line application solving real-world problems.</p>
-            <a class="btn" href="https://github.com/Solfegesam" target="_blank">View on GitHub</a>
-        </div>
-        <div class="project">
-            <img src="https://via.placeholder.com/400x200" alt="Project">
-            <h3>JavaScript To-Do</h3>
-            <p>Interactive web app demonstrating DOM manipulation.</p>
-            <a class="btn" href="https://github.com/Solfegesam" target="_blank">View on GitHub</a>
-        </div>
-    </div>
+<div class="skill">
+CSS
+<div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
 </div>
 
-<!-- Contact Me -->
-<div class="card reveal">
-    <h2>Contact Me</h2>
-    <form>
-        <input type="text" placeholder="Your Name" value="SAMUEL BILLY" required>
-        <input type="email" placeholder="Your Email" value="samuelbarasa106@gmail.com" required>
-        <textarea rows="5" placeholder="Your Message">Hi! I am very interested in collaborating on programming projects, learning together, and building web development solutions.</textarea>
-        <button type="submit">Send Message</button>
-    </form>
-    <p style="margin-top:10px;">Or check out my GitHub: <a href="https://github.com/Solfegesam" target="_blank">github.com/Solfegesam</a></p>
+<div class="skill">
+JavaScript
+<div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+</div>
+
+<div class="skill">
+Python
+<div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+</div>
+
+</section>
+
+<section id="projects" class="card">
+
+<h2>Projects</h2>
+
+<div class="project-grid">
+
+<div class="project">
+
+<img src="https://via.placeholder.com/400x200">
+
+<h3>Responsive Website</h3>
+
+<p>HTML & CSS responsive website.</p>
+
+<a class="btn" href="https://github.com/Solfegesam" target="_blank">View</a>
+
+</div>
+
+<div class="project">
+
+<img src="https://via.placeholder.com/400x200">
+
+<h3>Python CLI Tool</h3>
+
+<p>Command line productivity tool.</p>
+
+<a class="btn" href="https://github.com/Solfegesam" target="_blank">View</a>
+
+</div>
+
+<div class="project">
+
+<img src="https://via.placeholder.com/400x200">
+
+<h3>JavaScript To-Do App</h3>
+
+<p>Interactive task manager.</p>
+
+<a class="btn" href="https://github.com/Solfegesam" target="_blank">View</a>
+
 </div>
 
 </div>
+
+</section>
+
+<section id="contact" class="card">
+
+<h2>Contact</h2>
+
+<form action="https://formspree.io/f/mayvlvya" method="POST">
+
+<input type="text" name="name" placeholder="Name">
+
+<input type="email" name="email" placeholder="Email">
+
+<textarea name="message" rows="5" placeholder="Message"></textarea>
+
+<button type="submit">Send Message</button>
+
+</form>
+
+</section>
+
+</div>
+
+<footer>
+
+© 2026 Samuel Billy | Web Developer
+
+</footer>
 
 <script>
-/* Dark / Light Mode */
-function toggleMode() {
-    document.body.classList.toggle("light-mode");
+
+/* TYPING EFFECT */
+
+const texts=["Web Developer","Software Engineering Enthusiast","Building Modern Web Apps"]
+
+let i=0
+let j=0
+let current=""
+let letter=""
+
+function type(){
+
+if(i<texts.length){
+
+if(j<=texts[i].length){
+
+letter=texts[i].slice(0,j++)
+document.getElementById("typing").textContent=letter
+
+setTimeout(type,80)
+
 }
 
-/* Typing Effect */
-const texts = [
-    "Aspiring Web Developer",
-    "Software Engineering Enthusiast",
-    "Building Modern Web Solutions"
-];
+else{
 
-let count = 0;
-let index = 0;
-let currentText = "";
-let letter = "";
+j=0
+i++
+setTimeout(type,1200)
 
-(function type() {
-    if (count === texts.length) {
-        count = 0;
-    }
-    currentText = texts[count];
-    letter = currentText.slice(0, ++index);
-
-    document.getElementById("typing").textContent = letter;
-    if (letter.length === currentText.length) {
-        count++;
-        index = 0;
-        setTimeout(type, 1500);
-    } else {
-        setTimeout(type, 80);
-    }
-})();
-
-/* Scroll Reveal */
-window.addEventListener("scroll", reveal);
-
-function reveal() {
-    const reveals = document.querySelectorAll(".reveal");
-    reveals.forEach(element => {
-        const windowHeight = window.innerHeight;
-        const elementTop = element.getBoundingClientRect().top;
-        const visible = 100;
-        if (elementTop < windowHeight - visible) {
-            element.classList.add("show");
-        }
-    });
 }
+
+}
+
+else{
+
+i=0
+type()
+
+}
+
+}
+
+type()
+
+/* PARTICLE BACKGROUND */
+
+const canvas=document.getElementById("particles")
+const ctx=canvas.getContext("2d")
+
+canvas.width=window.innerWidth
+canvas.height=window.innerHeight
+
+let particles=[]
+
+for(let i=0;i<80;i++){
+
+particles.push({
+
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+dx:(Math.random()-0.5),
+dy:(Math.random()-0.5)
+
+})
+
+}
+
+function animate(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height)
+
+particles.forEach(p=>{
+
+ctx.beginPath()
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2)
+ctx.fillStyle="#58a6ff"
+ctx.fill()
+
+p.x+=p.dx
+p.y+=p.dy
+
+})
+
+requestAnimationFrame(animate)
+
+}
+
+animate()
+
 </script>
 
 </body>
